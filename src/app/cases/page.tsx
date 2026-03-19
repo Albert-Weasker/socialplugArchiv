@@ -11,6 +11,9 @@ export const metadata: Metadata = {
 
 export default async function CasesPage() {
   const cases = await getPublicCases();
+  const storeCreditCases = cases.filter((item) =>
+    item.allegationTags.includes("Store Credit Offer"),
+  ).length;
 
   return (
     <div className="section-pad">
@@ -21,6 +24,32 @@ export default async function CasesPage() {
             title="A SocialPlug case library built from public sources"
             description="These entries are based on public complaints, public reviews, and public posts. The site shows structured summaries, tags, and source links for archiving, search visibility, and later escalation."
           />
+          <div className="mt-8 grid gap-4 md:grid-cols-2">
+            <article className="rounded-[1.8rem] border border-[rgba(195,78,47,0.22)] bg-[rgba(195,78,47,0.08)] p-6">
+              <p className="eyebrow">Archived Scam Tactic</p>
+              <h2 className="mt-4 text-2xl font-semibold">
+                Store credit is offered instead of a real refund
+              </h2>
+              <p className="mt-3 text-sm leading-7 text-[var(--muted)]">
+                A newer tactic now archived in this library is support trying to convert a refund
+                demand into account balance or store credit. That keeps the buyer&apos;s money inside
+                the seller&apos;s own system instead of returning it to the original payment method.
+              </p>
+              <p className="mt-4 text-sm font-semibold text-[var(--foreground)]">
+                Cases currently tagged with this tactic: {storeCreditCases}
+              </p>
+            </article>
+
+            <article className="rounded-[1.8rem] border border-black/8 bg-white/50 p-6">
+              <p className="eyebrow">What The Tags Mean</p>
+              <div className="mt-4 grid gap-3 text-sm leading-7 text-[var(--muted)]">
+                <p>`📭 Not Delivered` means the order did not start or never produced the promised result.</p>
+                <p>`💳 Store Credit Offer` means support tried to replace a refund with internal balance.</p>
+                <p>`🚫 Refund Refused` means the request for money back was blocked, denied, or rerouted.</p>
+                <p>`🧾 Ticket Dispute` means the conflict is visible in ticket replies or dashboard communications.</p>
+              </div>
+            </article>
+          </div>
           <div className="mt-8 grid gap-4">
             {cases.map((item) => (
               <article
@@ -62,14 +91,20 @@ export default async function CasesPage() {
                     <Link href={`/cases/${item.slug}`} className="accent-button">
                       View case details
                     </Link>
-                    <a
-                      href={item.sourceUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="ghost-button"
-                    >
-                      Open original source
-                    </a>
+                    {item.sourceUrl ? (
+                      <a
+                        href={item.sourceUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="ghost-button"
+                      >
+                        Open original source
+                      </a>
+                    ) : (
+                      <div className="rounded-full border border-dashed border-black/10 px-4 py-2 text-xs uppercase tracking-[0.14em] text-[var(--muted)]">
+                        Direct archive submission
+                      </div>
+                    )}
                   </div>
                 </div>
               </article>

@@ -23,7 +23,7 @@ const complaintModes = [
   {
     id: "03",
     title: "Refunds are delayed or refused",
-    body: "Across public complaints, refund requests are often met with repetition, stalling, policy excuses, or outright refusal. The result is the same: users lose time while the seller keeps the money.",
+    body: "Across public complaints, refund requests are often met with repetition, stalling, policy excuses, store credit offers, or outright refusal. The result is the same: users lose time while the seller keeps the money.",
   },
   {
     id: "04",
@@ -226,8 +226,9 @@ export default async function Home() {
                   Case Summary
                 </p>
                 <p className="mt-3 text-sm leading-7 text-[#f3e7db]">
-                  Payment is made. Delivery never happens. A refund is requested. Support stalls.
-                  Then the replies stop. This is no longer a loose complaint pattern. It is a repeated one.
+                  Payment is made. Delivery never happens. A refund is requested. Support offers
+                  store credit instead of returning the money, then stalls. This is no longer a
+                  loose complaint pattern. It is a repeated one.
                 </p>
               </div>
               <div className="grid gap-3">

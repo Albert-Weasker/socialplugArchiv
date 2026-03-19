@@ -4,7 +4,7 @@ export type PublicCase = {
   slug: string;
   title: string;
   sourcePlatform: string;
-  sourceUrl: string;
+  sourceUrl?: string;
   sourceTitle: string;
   sourceAuthor: string;
   publishedAt: string;
@@ -38,6 +38,7 @@ const legacyTagMap: Record<string, string> = {
 export const caseTagEmojiMap: Record<string, CaseTagMeta> = {
   "Not Delivered": { emoji: "📭", label: "Not Delivered" },
   "Refund Refused": { emoji: "🚫", label: "Refund Refused" },
+  "Store Credit Offer": { emoji: "💳", label: "Store Credit Offer" },
   "Drop-Off": { emoji: "📉", label: "Drop-Off" },
   "Delivery Dispute": { emoji: "⚠️", label: "Delivery Dispute" },
   "Partial Delivery": { emoji: "🧩", label: "Partial Delivery" },
@@ -54,6 +55,28 @@ export function getTagMeta(tag: string): CaseTagMeta {
 }
 
 export const publicCaseSeeds: PublicCase[] = [
+  {
+    slug: "submission-github-stars-never-started-store-credit-offered",
+    title: "GitHub stars order never started and support pushed store credit instead of a refund",
+    sourcePlatform: "User Submission",
+    sourceTitle: "Direct archive submission",
+    sourceAuthor: "Herchejane",
+    publishedAt: "2026-03-19",
+    summary:
+      "A direct submission says a $200.60 GitHub Stars order never started, and support tried to replace the requested refund with account store credit instead of sending money back to the original payment method.",
+    excerpt:
+      "The order showed Created on March 16, but Started and Completed stayed blank. Support said the amount should reflect on the SocialPlug account balance. The buyer rejected store credit and asked for a refund to the original payment method within 24 hours.",
+    allegationTags: [
+      "Not Delivered",
+      "Refund Refused",
+      "Refund Delay",
+      "Store Credit Offer",
+      "Ticket Dispute",
+    ],
+    statusLabel: "Submitted Evidence",
+    amountText: "$200.60",
+    amountUsdEstimate: 200.6,
+  },
   {
     slug: "trustpilot-stuart-lunn-never-received-order-refused-refund",
     title: "Order never arrived and refund was refused",
@@ -152,6 +175,23 @@ export const publicCaseSeeds: PublicCase[] = [
   },
 ];
 
+function mergeCases(cases: PublicCase[]) {
+  const bySlug = new Map<string, PublicCase>();
+
+  cases.forEach((item) => {
+    bySlug.set(item.slug, item);
+  });
+
+  return Array.from(bySlug.values()).sort((a, b) => {
+    const dateCompare = b.publishedAt.localeCompare(a.publishedAt);
+    if (dateCompare !== 0) {
+      return dateCompare;
+    }
+
+    return a.slug.localeCompare(b.slug);
+  });
+}
+
 type CaseRow = {
   slug: string;
   title: string;
@@ -176,13 +216,16 @@ function mapRow(row: CaseRow): PublicCase {
       ? "Public Complaint"
       : row.status_label === "公开贴文"
         ? "Public Post"
+        : row.status_label === "用户投稿"
+          ? "Submitted Evidence"
         : row.status_label;
 
   return {
     slug: row.slug,
     title: row.title,
-    sourcePlatform: row.source_platform,
-    sourceUrl: row.source_url,
+    sourcePlatform:
+      row.source_platform === "用户投稿" ? "User Submission" : row.source_platform,
+    sourceUrl: row.source_url || undefined,
     sourceTitle: row.source_title,
     sourceAuthor: row.source_author,
     publishedAt: row.published_at,
@@ -226,13 +269,13 @@ export async function getPublicCases(): Promise<PublicCase[]> {
     );
 
     if (result.rows.length > 0) {
-      return result.rows.map(mapRow);
+      return mergeCases([...result.rows.map(mapRow), ...publicCaseSeeds]);
     }
   } catch {
-    return publicCaseSeeds;
+    return mergeCases(publicCaseSeeds);
   }
 
-  return publicCaseSeeds;
+  return mergeCases(publicCaseSeeds);
 }
 
 export async function getPublicCaseBySlug(

@@ -134,14 +134,21 @@ export default async function CaseDetailPage({
               experience, submit your own evidence to strengthen the timeline.
             </p>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-              <a
-                href={item.sourceUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="accent-button"
-              >
-                View original source
-              </a>
+              {item.sourceUrl ? (
+                <a
+                  href={item.sourceUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="accent-button"
+                >
+                  View original source
+                </a>
+              ) : (
+                <div className="rounded-full border border-black/10 bg-white/60 px-4 py-3 text-sm text-[var(--muted)]">
+                  This case was submitted directly to the archive and has no public outbound source
+                  link.
+                </div>
+              )}
               <Link href="/submit-report" className="ghost-button">
                 Submit my evidence
               </Link>

@@ -28,7 +28,7 @@ const repeatedPath = [
   {
     step: "04",
     title: "The case stalls",
-    body: "The refund remains incomplete, the fix never stabilizes, or communication stops altogether.",
+    body: "The refund remains incomplete, support tries to reroute it into store credit, the fix never stabilizes, or communication stops altogether.",
   },
 ];
 
@@ -152,7 +152,7 @@ export default async function SocialPlugReviewPage() {
               },
               {
                 title: "🚫 Refund conflict",
-                body: "Public records repeatedly mention refund delay, policy excuses, or outright refusal.",
+                body: "Public records repeatedly mention refund delay, policy excuses, store-credit substitution, or outright refusal.",
               },
               {
                 title: "👻 Support communication breakdown",

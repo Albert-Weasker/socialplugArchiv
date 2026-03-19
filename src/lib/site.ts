@@ -6,7 +6,7 @@ export const caseStats = [
   { value: "$100,000+", label: "Estimated total loss documented so far" },
   { value: "1st", label: "Built to intercept brand-name searches" },
   { value: "24h", label: "Target response window for new reports" },
-  { value: "4 types", label: "Non-delivery / drops / denied refunds / ghosting" },
+  { value: "5 types", label: "Non-delivery / drops / denied refunds / store credit diversion / ghosting" },
 ];
 
 export const complaintAngles = [
@@ -16,7 +16,7 @@ export const complaintAngles = [
   },
   {
     title: "Refund requests get dragged out",
-    body: "After non-delivery or obvious drops, support keeps delaying, redirecting, or ultimately refusing a refund.",
+    body: "After non-delivery or obvious drops, support keeps delaying, redirecting, offering account balance or store credit, or ultimately refusing a refund.",
   },
   {
     title: "Support communication breaks down",
@@ -38,7 +38,7 @@ export const timelineItems = [
   {
     date: "Day 03",
     title: "The buyer asks for a fix or refund",
-    body: "This is where many complainants say the script changes: repeated waiting messages, ticket loops, policy references, and no meaningful solution. Keep every email, ticket, and chat log.",
+    body: "This is where many complainants say the script changes: repeated waiting messages, ticket loops, policy references, store-credit offers, and no meaningful solution. Keep every email, ticket, and chat log.",
   },
   {
     date: "Day 04+",
