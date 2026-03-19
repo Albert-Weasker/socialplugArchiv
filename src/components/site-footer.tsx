@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 const footerLinks = [
+  { href: "/socialplug-all-services", label: "All Services Risk" },
   { href: "/cases", label: "Case Library" },
   { href: "/socialplug-review", label: "Exposure Overview" },
   { href: "/refund-guide", label: "Refunds and Chargebacks" },
@@ -8,6 +9,11 @@ const footerLinks = [
 ];
 
 const seoLinks = [
+  { href: "/socialplug-all-services", label: "SocialPlug services" },
+  { href: "/socialplug-github-stars", label: "SocialPlug GitHub stars" },
+  { href: "/socialplug-x-twitter-followers", label: "SocialPlug Twitter followers" },
+  { href: "/socialplug-instagram-followers-likes", label: "SocialPlug Instagram followers" },
+  { href: "/socialplug-tiktok-youtube-growth", label: "SocialPlug TikTok / YouTube" },
   { href: "/socialplug-scam", label: "SocialPlug scam" },
   { href: "/socialplug-review", label: "SocialPlug review" },
   { href: "/socialplug-refund", label: "SocialPlug refund" },

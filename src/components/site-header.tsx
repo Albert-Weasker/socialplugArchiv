@@ -3,6 +3,7 @@ import Link from "next/link";
 
 const navItems = [
   { href: "/", label: "Home" },
+  { href: "/socialplug-all-services", label: "All Services Risk" },
   { href: "/cases", label: "Case Library" },
   { href: "/socialplug-review", label: "Exposure Overview" },
   { href: "/refund-guide", label: "Refund Guide" },

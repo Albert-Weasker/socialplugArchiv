@@ -1,5 +1,6 @@
 import { EvidenceSeal } from "@/components/evidence-seal";
 import Link from "next/link";
+import { ExposureTabs } from "@/components/exposure-tabs";
 import { SectionHeading } from "@/components/section-heading";
 import { VerdictEmblem } from "@/components/verdict-emblem";
 import { getComplaintOverviewStats, getTagMeta } from "@/lib/cases";
@@ -263,6 +264,12 @@ export default async function Home() {
               </div>
             </div>
           </aside>
+        </div>
+      </section>
+
+      <section className="section-pad pt-0">
+        <div className="container-shell">
+          <ExposureTabs />
         </div>
       </section>
 
