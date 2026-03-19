@@ -11,6 +11,10 @@ export const metadata: Metadata = {
 
 export default async function CasesPage() {
   const cases = await getPublicCases();
+  const exclusiveRefundCase =
+    cases.find(
+      (item) => item.slug === "exclusive-email-jia-socialplug-refund-forced-to-account-balance",
+    ) ?? null;
   const storeCreditCases = cases.filter((item) =>
     item.allegationTags.includes("Store Credit Offer"),
   ).length;
@@ -25,6 +29,38 @@ export default async function CasesPage() {
             description="These entries are based on public complaints, public reviews, and public posts. The site shows structured summaries, tags, and source links for archiving, search visibility, and later escalation."
           />
           <div className="mt-8 grid gap-4 md:grid-cols-2">
+            {exclusiveRefundCase ? (
+              <article className="rounded-[1.8rem] border border-[rgba(119,13,13,0.28)] bg-[linear-gradient(135deg,rgba(119,13,13,0.96),rgba(55,14,14,0.96))] p-6 text-[#fff2ea] md:col-span-2">
+                <p className="eyebrow !text-[#f3b7aa] before:!bg-[#d26c58]">
+                  Exclusive Evidence / SocialPlug Scam Search Intent
+                </p>
+                <h2 className="display-title mt-4 text-3xl font-semibold leading-tight md:text-4xl">
+                  SocialPlug support wrote that the refund would stay in SocialPlug account balance.
+                </h2>
+                <p className="mt-4 max-w-4xl text-sm leading-7 text-[#ffd9cf]">
+                  This archived email is one of the clearest warnings in the library: the money
+                  is acknowledged, the order dispute is acknowledged, and the buyer is still told
+                  the refund belongs in platform balance instead of the original payment method.
+                  That is why so many people search terms like <strong>SocialPlug scam</strong> and
+                  <strong> SocialPlug refund refused</strong>.
+                </p>
+                <div className="mt-5 flex flex-col gap-3 sm:flex-row">
+                  <Link
+                    href={`/cases/${exclusiveRefundCase.slug}`}
+                    className="accent-button !bg-[#f7efe4] !text-[#210f0f] hover:!bg-[#efc7a8]"
+                  >
+                    Open the exclusive evidence
+                  </Link>
+                  <Link
+                    href="/socialplug-scam"
+                    className="ghost-button !border-white/18 !bg-white/8 !text-[#fff2ea]"
+                  >
+                    Open SocialPlug scam page
+                  </Link>
+                </div>
+              </article>
+            ) : null}
+
             <article className="rounded-[1.8rem] border border-[rgba(195,78,47,0.22)] bg-[rgba(195,78,47,0.08)] p-6">
               <p className="eyebrow">Archived Scam Tactic</p>
               <h2 className="mt-4 text-2xl font-semibold">

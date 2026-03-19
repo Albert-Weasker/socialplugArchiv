@@ -70,6 +70,14 @@ const companyProfileLinks = [
   },
 ];
 
+const exclusiveBanner = {
+  title:
+    "Exclusive evidence: SocialPlug support said the money would stay inside SocialPlug account balance instead of going back to the original payment method.",
+  body:
+    'Archived email text says: "The refund for Order has already been processed and issued to your SocialPlug account balance" and "refunds for canceled or unfulfilled orders are issued to the account balance." For buyers, the warning is obvious: once the money goes in, getting it back out can become a second fight.',
+  href: "/cases/exclusive-email-jia-socialplug-refund-forced-to-account-balance",
+};
+
 export default async function Home() {
   const overview = await getComplaintOverviewStats();
   const topIssue = overview.mostRepeatedIssue
@@ -264,6 +272,32 @@ export default async function Home() {
               </div>
             </div>
           </aside>
+        </div>
+      </section>
+
+      <section className="section-pad pt-0">
+        <div className="container-shell">
+          <div className="rounded-[2rem] border border-[rgba(195,78,47,0.26)] bg-[linear-gradient(135deg,rgba(119,13,13,0.96),rgba(55,14,14,0.96))] px-6 py-7 text-[#fff2ea] shadow-[0_24px_80px_rgba(73,12,12,0.24)] md:px-8">
+            <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+              <div className="max-w-4xl">
+                <p className="eyebrow !text-[#f3b7aa] before:!bg-[#d26c58]">
+                  Exclusive Evidence / SocialPlug Scam Warning
+                </p>
+                <h2 className="display-title mt-4 text-4xl font-semibold leading-tight md:text-5xl">
+                  {exclusiveBanner.title}
+                </h2>
+                <p className="mt-4 text-sm leading-7 text-[#ffd9cf]">
+                  {exclusiveBanner.body}
+                </p>
+              </div>
+              <Link
+                href={exclusiveBanner.href}
+                className="ghost-button !border-white/18 !bg-white/8 !text-[#fff2ea]"
+              >
+                Open the exclusive case
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 

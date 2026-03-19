@@ -17,6 +17,9 @@ export const metadata: Metadata = {
   keywords: [
     "SocialPlug",
     "SocialPlug scam",
+    "why SocialPlug is a scam",
+    "SocialPlug scam proof",
+    "SocialPlug refund refused",
     "SocialPlug review",
     "SocialPlug complaints",
     "SocialPlug refund",

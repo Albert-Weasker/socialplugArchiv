@@ -10,6 +10,7 @@ const footerLinks = [
 
 const seoLinks = [
   { href: "/socialplug-all-services", label: "SocialPlug services" },
+  { href: "/why-socialplug-is-a-scam", label: "Why SocialPlug is a scam" },
   { href: "/socialplug-github-stars", label: "SocialPlug GitHub stars" },
   { href: "/socialplug-x-twitter-followers", label: "SocialPlug Twitter followers" },
   { href: "/socialplug-instagram-followers-likes", label: "SocialPlug Instagram followers" },

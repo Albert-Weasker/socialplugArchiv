@@ -56,6 +56,27 @@ export function getTagMeta(tag: string): CaseTagMeta {
 
 export const publicCaseSeeds: PublicCase[] = [
   {
+    slug: "exclusive-email-jia-socialplug-refund-forced-to-account-balance",
+    title: "Exclusive evidence: SocialPlug support said the refund would not go back to the original payment method",
+    sourcePlatform: "Exclusive Evidence",
+    sourceTitle: "Archived email from Jia at SocialPlug",
+    sourceAuthor: "Tim",
+    publishedAt: "2026-03-19",
+    summary:
+      "An archived support email says the refund for the order was issued to the SocialPlug account balance instead of the original payment method, and explicitly says canceled or unfulfilled orders are refunded to account balance under SocialPlug's policy.",
+    excerpt:
+      "The refund for Order has already been processed and issued to your SocialPlug account balance... refunds for canceled or unfulfilled orders are issued to the account balance.",
+    allegationTags: [
+      "Refund Refused",
+      "Refund Delay",
+      "Store Credit Offer",
+      "Ticket Dispute",
+    ],
+    statusLabel: "Submitted Evidence",
+    amountText: "$200.00",
+    amountUsdEstimate: 200,
+  },
+  {
     slug: "submission-github-stars-never-started-store-credit-offered",
     title: "GitHub stars order never started and support pushed store credit instead of a refund",
     sourcePlatform: "User Submission",
