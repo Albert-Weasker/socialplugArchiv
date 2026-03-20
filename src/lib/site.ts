@@ -1,4 +1,4 @@
-export const siteUrl = "https://socialplug-evidence.org";
+export const siteUrl = "https://socialplugarchive.com";
 
 export const siteName = "SocialPlug Evidence Archive";
 
