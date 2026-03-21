@@ -1,6 +1,7 @@
 import { EvidenceSeal } from "@/components/evidence-seal";
 import Link from "next/link";
 import { ExposureTabs } from "@/components/exposure-tabs";
+import { ReaderImpactMarquee } from "@/components/reader-impact-marquee";
 import { SectionHeading } from "@/components/section-heading";
 import { VerdictEmblem } from "@/components/verdict-emblem";
 import { getComplaintOverviewStats, getTagMeta } from "@/lib/cases";
@@ -78,6 +79,13 @@ const exclusiveBanner = {
   href: "/cases/exclusive-email-jia-socialplug-refund-forced-to-account-balance",
 };
 
+const urgentBanner = {
+  title:
+    "Buying any service on SocialPlug carries an extremely high scam risk.",
+  body:
+    "If you have not bought yet, stop ordering now. If you already paid SocialPlug, submit your evidence immediately, because the probability that you were misled is close to 100%.",
+};
+
 export default async function Home() {
   const overview = await getComplaintOverviewStats();
   const topIssue = overview.mostRepeatedIssue
@@ -86,7 +94,38 @@ export default async function Home() {
 
   return (
     <>
-      <section className="section-pad pb-10 pt-8 md:pt-12">
+      <section className="section-pad pb-0 pt-5 md:pt-6">
+        <div className="container-shell">
+          <div className="rounded-[1.9rem] border border-[rgba(195,78,47,0.28)] bg-[linear-gradient(135deg,rgba(119,13,13,0.98),rgba(71,11,11,0.98))] px-5 py-5 text-[#fff2ea] shadow-[0_24px_80px_rgba(73,12,12,0.28)] md:px-7 md:py-6">
+            <div className="flex flex-col gap-5 xl:flex-row xl:items-center xl:justify-between">
+              <div className="max-w-5xl">
+                <p className="eyebrow !text-[#f3b7aa] before:!bg-[#d26c58]">
+                  SocialPlug Scam Alert
+                </p>
+                <h2 className="display-title mt-3 text-3xl font-semibold leading-tight md:text-4xl">
+                  {urgentBanner.title}
+                </h2>
+                <p className="mt-3 max-w-4xl text-sm leading-7 text-[#ffd9cf] md:text-base md:leading-8">
+                  {urgentBanner.body}
+                </p>
+              </div>
+              <div className="flex flex-col gap-3 sm:flex-row xl:shrink-0">
+                <Link href="/submit-report" className="accent-button !bg-[#fff2ea] !text-[#4a1010] hover:!bg-white">
+                  Submit evidence now
+                </Link>
+                <Link
+                  href="/socialplug-review"
+                  className="ghost-button !border-white/18 !bg-white/8 !text-[#fff2ea]"
+                >
+                  View SocialPlug cases
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section-pad pb-10 pt-6 md:pt-8">
         <div className="container-shell story-grid items-start">
           <div className="space-y-7">
             <p className="eyebrow">Report SocialPlug. Archive the Evidence.</p>
@@ -274,6 +313,8 @@ export default async function Home() {
           </aside>
         </div>
       </section>
+
+      <ReaderImpactMarquee />
 
       <section className="section-pad pt-0">
         <div className="container-shell">

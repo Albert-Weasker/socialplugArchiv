@@ -403,6 +403,113 @@ a {
   font-weight: 700;
 }
 
+.impact-shell {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(195, 78, 47, 0.2);
+  background:
+    radial-gradient(circle at top right, rgba(195, 78, 47, 0.18), transparent 26%),
+    linear-gradient(180deg, rgba(255, 251, 246, 0.94), rgba(248, 239, 228, 0.9));
+}
+
+.impact-shell::before {
+  content: "";
+  position: absolute;
+  inset: auto -6% -24% auto;
+  width: 240px;
+  height: 240px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(31, 60, 54, 0.12), transparent 70%);
+  pointer-events: none;
+}
+
+.impact-privacy-badge {
+  max-width: 340px;
+  border: 1px solid rgba(23, 20, 17, 0.1);
+  border-radius: 1.5rem;
+  background: rgba(255, 255, 255, 0.62);
+  padding: 1rem 1.1rem;
+  backdrop-filter: blur(12px);
+}
+
+.impact-highlight {
+  border: 1px solid rgba(23, 20, 17, 0.1);
+  border-radius: 1.6rem;
+  background: rgba(255, 255, 255, 0.68);
+  padding: 1.35rem;
+  box-shadow: 0 20px 52px rgba(35, 23, 18, 0.06);
+}
+
+.impact-inline-link {
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--foreground);
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.impact-inline-link::after {
+  content: "→";
+}
+
+.impact-marquee {
+  display: grid;
+  gap: 1rem;
+}
+
+.impact-marquee__viewport {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 7%, black 93%, transparent);
+  mask-image: linear-gradient(90deg, transparent, black 7%, black 93%, transparent);
+}
+
+.impact-marquee__track {
+  display: flex;
+  width: max-content;
+  gap: 1rem;
+  animation: impact-scroll-forward 34s linear infinite;
+  will-change: transform;
+}
+
+.impact-marquee__track--reverse {
+  animation-name: impact-scroll-reverse;
+  animation-duration: 39s;
+}
+
+.impact-marquee__viewport:hover .impact-marquee__track,
+.impact-marquee__viewport:focus-within .impact-marquee__track {
+  animation-play-state: paused;
+}
+
+.impact-marquee__group {
+  display: flex;
+  flex-shrink: 0;
+  gap: 1rem;
+}
+
+.impact-card {
+  width: clamp(280px, 31vw, 400px);
+  min-height: 220px;
+  border: 1px solid rgba(23, 20, 17, 0.1);
+  border-radius: 1.7rem;
+  background: rgba(255, 252, 248, 0.9);
+  padding: 1.35rem;
+  box-shadow: 0 22px 58px rgba(35, 23, 18, 0.08);
+}
+
+.impact-card__category {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  background: rgba(195, 78, 47, 0.1);
+  padding: 0.42rem 0.72rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
 @keyframes hero-lightning {
   0%,
   88%,
@@ -460,6 +567,24 @@ a {
   }
 }
 
+@keyframes impact-scroll-forward {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(calc(-50% - 0.5rem), 0, 0);
+  }
+}
+
+@keyframes impact-scroll-reverse {
+  from {
+    transform: translate3d(calc(-50% - 0.5rem), 0, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
 @media (max-width: 980px) {
   .stat-grid,
   .three-grid,
@@ -475,6 +600,10 @@ a {
   .storm-backdrop__flash {
     width: 64vw;
     right: -4%;
+  }
+
+  .impact-privacy-badge {
+    max-width: none;
   }
 }
 
@@ -500,5 +629,16 @@ a {
   .evidence-seal {
     width: 98px;
     height: 98px;
+  }
+
+  .impact-card {
+    width: min(320px, calc(100vw - 2.5rem));
+    min-height: 244px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .impact-marquee__track {
+    animation: none;
   }
 }
