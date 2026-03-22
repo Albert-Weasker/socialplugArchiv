@@ -77,7 +77,7 @@ export default async function SeoLandingPage({
     })
     .filter((entry) => entry.score > 0)
     .sort((a, b) => b.score - a.score || b.item.publishedAt.localeCompare(a.item.publishedAt))
-    .slice(0, 3)
+    .slice(0, 4)
     .map((entry) => entry.item);
 
   const faqJsonLd = {

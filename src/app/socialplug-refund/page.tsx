@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { CaseSpotlightGrid } from "@/components/case-spotlight-grid";
 import { SectionHeading } from "@/components/section-heading";
+import { getPublicCases, pickCasesBySlug } from "@/lib/cases";
 
 export const metadata: Metadata = {
   title: "SocialPlug Refund",
@@ -40,7 +42,14 @@ const faqItems = [
   },
 ];
 
-export default function SocialPlugRefundPage() {
+export default async function SocialPlugRefundPage() {
+  const cases = await getPublicCases();
+  const refundCases = pickCasesBySlug(cases, [
+    "exclusive-email-jia-socialplug-refund-forced-to-account-balance",
+    "trustpilot-md-no-delivery-refund-email-loop",
+    "trustpilot-keyxe-hidden-policies-no-refund",
+    "trustpilot-captain-bangsaen-subreddit-banned-no-refund",
+  ]);
   const faqJsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -132,6 +141,13 @@ export default function SocialPlugRefundPage() {
             </div>
           </aside>
         </div>
+
+        <CaseSpotlightGrid
+          eyebrow="Refund Cases In The Archive"
+          title='Cases showing why "SocialPlug refund" searches usually start after the seller stops fixing the problem'
+          description="These archived entries are the practical reason this page exists. They show refund requests getting trapped in repeated emails, denied outright, redirected into balance logic, or rejected after visible downstream harm."
+          cases={refundCases}
+        />
 
         <section className="glass-card rounded-[2rem] p-6 md:p-8">
           <SectionHeading

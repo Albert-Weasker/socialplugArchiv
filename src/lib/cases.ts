@@ -146,6 +146,134 @@ export const publicCaseSeeds: PublicCase[] = [
     rating: 1,
   },
   {
+    slug: "trustpilot-md-no-delivery-refund-email-loop",
+    title: "Review says payment was taken, delivery never happened, and refund emails kept looping",
+    sourcePlatform: "Trustpilot",
+    sourceUrl: "https://www.trustpilot.com/review/panel.socialplug.io",
+    sourceTitle: "Panel Socialplug Reviews",
+    sourceAuthor: "M D",
+    publishedAt: "2026-02-20",
+    summary:
+      "A public review says the service was never delivered and refund requests were met with repetitive email replies instead of a real resolution.",
+    excerpt:
+      "They take your money and will never deliver the service... when you request a refund, they keep writing the same email message over and over again.",
+    allegationTags: ["Not Delivered", "Refund Delay", "Ticket Dispute"],
+    statusLabel: "Public Complaint",
+    rating: 1,
+  },
+  {
+    slug: "trustpilot-keyxe-hidden-policies-no-refund",
+    title: "Refund was denied after the buyer says extra steps and hidden policies appeared after purchase",
+    sourcePlatform: "Trustpilot",
+    sourceUrl: "https://www.trustpilot.com/review/panel.socialplug.io",
+    sourceTitle: "Panel Socialplug Reviews",
+    sourceAuthor: "Keyxe US",
+    publishedAt: "2026-02-20",
+    summary:
+      "A public review says the buyer ran into unclear instructions, extra requirements that were not obvious at checkout, and no refund when they objected.",
+    excerpt:
+      "Wouldnt issue a refund... instructions werent clear and required extra unnecessary steps... wasnt specifically provided at time of purchase.",
+    allegationTags: ["Refund Refused", "Ticket Dispute", "Quality Dispute"],
+    statusLabel: "Public Complaint",
+    rating: 1,
+  },
+  {
+    slug: "trustpilot-antiwoke-youtube-followers-readded-then-removed",
+    title: "YouTube followers were repeatedly re-added and repeatedly removed",
+    sourcePlatform: "Trustpilot",
+    sourceUrl: "https://www.trustpilot.com/review/panel.socialplug.io",
+    sourceTitle: "Panel Socialplug Reviews",
+    sourceAuthor: "AntiWoke MMA",
+    publishedAt: "2026-01-01",
+    summary:
+      "A public review says YouTube followers were added, removed, added again after complaints, and then removed again until the buyer gave up.",
+    excerpt:
+      "They were added, then immediately removed... followers were re-added, then immediately removed again.",
+    allegationTags: ["Drop-Off", "Delivery Dispute", "Repeat Orders"],
+    statusLabel: "Public Complaint",
+    rating: 1,
+  },
+  {
+    slug: "trustpilot-tom-jones-followers-gone-after-ten-hours",
+    title: "A full follower order disappeared roughly ten hours after delivery",
+    sourcePlatform: "Trustpilot",
+    sourceUrl: "https://www.trustpilot.com/review/panel.socialplug.io",
+    sourceTitle: "Panel Socialplug Reviews",
+    sourceAuthor: "Tom Jones",
+    publishedAt: "2026-01-23",
+    summary:
+      "A public review says a 1,000-follower order appeared at first and then vanished within about ten hours.",
+    excerpt:
+      "Paid for 1000 followers... got 1000 followers for 10 hours then all 1000 were removed.",
+    allegationTags: ["Drop-Off", "Delivery Dispute"],
+    statusLabel: "Public Complaint",
+    rating: 1,
+  },
+  {
+    slug: "trustpilot-mohammadali-no-delivery-no-money-back",
+    title: "Review says nothing was delivered and no money came back",
+    sourcePlatform: "Trustpilot",
+    sourceUrl: "https://www.trustpilot.com/review/panel.socialplug.io",
+    sourceTitle: "Panel Socialplug Reviews",
+    sourceAuthor: "mohammadali ghods",
+    publishedAt: "2026-01-10",
+    summary:
+      "A public review says the buyer received nothing and still did not get their money returned.",
+    excerpt:
+      "They didn’t deliver anything... they did’t return back any money.",
+    allegationTags: ["Not Delivered", "Refund Refused"],
+    statusLabel: "Public Complaint",
+    rating: 1,
+  },
+  {
+    slug: "trustpilot-captain-bangsaen-subreddit-banned-no-refund",
+    title: "Subreddit upvote order was followed by a ban, and the buyer says responsibility was rejected",
+    sourcePlatform: "Trustpilot",
+    sourceUrl: "https://www.trustpilot.com/review/panel.socialplug.io",
+    sourceTitle: "Panel Socialplug Reviews",
+    sourceAuthor: "Captain Bangsaen",
+    publishedAt: "2025-12-29",
+    summary:
+      "A public review says a subreddit upvote order was followed by a subreddit ban, and the seller refused to take responsibility or refund the purchase.",
+    excerpt:
+      "A few hours later, my subreddit got banned... the answer was no! and no refund as well.",
+    allegationTags: ["Quality Dispute", "Refund Refused", "Delivery Dispute"],
+    statusLabel: "Public Complaint",
+    rating: 1,
+  },
+  {
+    slug: "trustpilot-catalin-account-not-delivered-after-five-minute-promise",
+    title: "An order advertised with a five-minute promise still had not arrived two days later",
+    sourcePlatform: "Trustpilot",
+    sourceUrl: "https://www.trustpilot.com/review/panel.socialplug.io",
+    sourceTitle: "Panel Socialplug Reviews",
+    sourceAuthor: "Catalin Zorzini",
+    publishedAt: "2025-12-23",
+    summary:
+      "A public review says an account order was still missing two days later despite a site claim that delivery would happen within five minutes of payment.",
+    excerpt:
+      "Two days later still didn't get anything, even though on their site they claim it will be sent in 5 minutes from payment.",
+    allegationTags: ["Not Delivered", "Delivery Dispute"],
+    statusLabel: "Public Complaint",
+    rating: 1,
+  },
+  {
+    slug: "trustpilot-raahul-forty-days-no-delivery",
+    title: "A buyer says forty days passed with no delivery",
+    sourcePlatform: "Trustpilot",
+    sourceUrl: "https://www.trustpilot.com/review/panel.socialplug.io",
+    sourceTitle: "Panel Socialplug Reviews",
+    sourceAuthor: "raahul dutta",
+    publishedAt: "2025-12-16",
+    summary:
+      "A public review says an order remained undelivered for about forty days after purchase.",
+    excerpt:
+      "I placed the order, and it has been 40 days with no delivery.",
+    allegationTags: ["Not Delivered", "Refund Delay"],
+    statusLabel: "Public Complaint",
+    rating: 1,
+  },
+  {
     slug: "trustpilot-mila-views-never-landed-in-insights",
     title: "Multiple fulfillment attempts still did not produce the promised result",
     sourcePlatform: "Trustpilot",
@@ -335,6 +463,14 @@ export async function getPublicCaseBySlug(
   }
 
   return publicCaseSeeds.find((item) => item.slug === slug) ?? null;
+}
+
+export function pickCasesBySlug(cases: PublicCase[], slugs: string[]) {
+  const bySlug = new Map(cases.map((item) => [item.slug, item]));
+
+  return slugs
+    .map((slug) => bySlug.get(slug))
+    .filter((item): item is PublicCase => Boolean(item));
 }
 
 function startOfDay(date: Date) {

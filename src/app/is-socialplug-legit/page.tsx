@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { CaseSpotlightGrid } from "@/components/case-spotlight-grid";
 import { SectionHeading } from "@/components/section-heading";
+import { getPublicCases, pickCasesBySlug } from "@/lib/cases";
 
 export const metadata: Metadata = {
   title: "Is SocialPlug Legit",
@@ -85,7 +87,13 @@ const faqItems = [
   },
 ];
 
-export default function IsSocialPlugLegitPage() {
+export default async function IsSocialPlugLegitPage() {
+  const cases = await getPublicCases();
+  const legitimacyCases = pickCasesBySlug(cases, [
+    "exclusive-email-jia-socialplug-refund-forced-to-account-balance",
+    "trustpilot-catalin-account-not-delivered-after-five-minute-promise",
+    "trustpilot-raahul-forty-days-no-delivery",
+  ]);
   const faqJsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -232,6 +240,13 @@ export default function IsSocialPlugLegitPage() {
             ))}
           </div>
         </section>
+
+        <CaseSpotlightGrid
+          eyebrow="Cases Cautious Buyers Read"
+          title='Public cases that answer the "socialplug legit" question faster than branding does'
+          description="These examples matter because they sit on the buyer side of the transaction. They show what happens after money is sent, promises are tested, and the seller is asked to make things right."
+          cases={legitimacyCases}
+        />
 
         <section className="rounded-[2rem] border border-[rgba(195,78,47,0.26)] bg-[linear-gradient(135deg,rgba(119,13,13,0.94),rgba(55,14,14,0.94))] px-6 py-7 text-[#fff2ea] shadow-[0_24px_80px_rgba(73,12,12,0.26)] md:px-8 md:py-8">
           <p className="eyebrow !text-[#f3b7aa] before:!bg-[#d26c58]">Do Not Pay Because Of Big Counters</p>

@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { CaseSpotlightGrid } from "@/components/case-spotlight-grid";
 import { SectionHeading } from "@/components/section-heading";
-import { getPublicCases, getTagMeta } from "@/lib/cases";
+import { getPublicCases, getTagMeta, pickCasesBySlug } from "@/lib/cases";
 
 export const metadata: Metadata = {
   title: "SocialPlug Review",
@@ -49,6 +50,11 @@ export default async function SocialPlugReviewPage() {
   const cases = await getPublicCases();
   const sources = Array.from(new Set(cases.map((item) => item.sourcePlatform)));
   const yearSpan = summarizeYearSpan(cases.map((item) => item.publishedAt));
+  const featuredReviewCases = pickCasesBySlug(cases, [
+    "trustpilot-md-no-delivery-refund-email-loop",
+    "trustpilot-antiwoke-youtube-followers-readded-then-removed",
+    "trustpilot-captain-bangsaen-subreddit-banned-no-refund",
+  ]);
 
   const tagCounts = cases.reduce<Record<string, number>>((acc, item) => {
     item.allegationTags.forEach((tag) => {
@@ -171,6 +177,13 @@ export default async function SocialPlugReviewPage() {
             ))}
           </div>
         </section>
+
+        <CaseSpotlightGrid
+          eyebrow="Cases Behind The Search"
+          title='Fresh public cases that show why people search "SocialPlug review" before they pay'
+          description="These are not abstract warnings. They are dated public complaints pulled into the archive because they show the repeat pattern clearly: no delivery, disappearing results, refund conflict, and visible downstream damage."
+          cases={featuredReviewCases}
+        />
 
         <section className="two-grid">
           <div className="glass-card rounded-[2rem] p-6 md:p-8">
